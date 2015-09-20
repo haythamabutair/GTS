@@ -18,5 +18,15 @@ namespace Support.Controllers
             var model = new SupportModel();
             return await model.retrieveSupportStringForId(supportId);
         }
+
+        [HttpPost]
+        [Route("name={name}&email={email}&phonenumber={phonenumber}&message={message}")]
+        public bool Email()
+        {
+            var queryString = Request.GetQueryNameValuePairs();
+            var model = new SupportModel();
+          //  return model.sendMail(name, email, phoneNumber, message);
+            return true;
+        }
     }
 }

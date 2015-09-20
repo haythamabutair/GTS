@@ -6,6 +6,7 @@ using System.Web;
 using FireSharp;
 using FireSharp.Config;
 using FireSharp.Response;
+using System.Net.Mail;
 
 namespace Support.Models
 {
@@ -23,6 +24,29 @@ namespace Support.Models
             string url = "https://globaltechsupport.firebaseio.com/" + id;
             FirebaseResponse response = await firebase.GetAsync(id.ToString());
             return response.ResultAs<string>();
+        }
+
+        public bool sendMail(string name, string email, string phoneNumber, string message)
+        {
+            MailMessage mail = new MailMessage();
+            SmtpClient client = new SmtpClient();
+            client.Port = 25;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Host = "smtp.gmail.com";
+            mail.To.Add(new MailAddress(email));
+            mail.From = new MailAddress("haytham.abutair@gmail.com");
+            mail.Subject = "this is a test email.";
+            mail.Body = "this is my test email body";
+            try
+            {
+                client.Send(mail);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }
