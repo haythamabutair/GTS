@@ -1,7 +1,8 @@
-﻿<div class="container">
+﻿
+<div class="container">
     <div class="col-md-5 col-md-offset-3">
         <div class="form-area">
-            <form role="form" name="form" action="~/.../Values" method="post" id="contactForm">
+            <form role="form" name="form" action="/api/Values/email" method="POST" id="contactForm">
                 <img class="img-responsive" src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7TDlCYzRROE84YWM/materialdesign_introduction.png">
 
                 <br style="clear: both">
@@ -63,66 +64,3 @@
         </div>
     </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-   
-<!--
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#contactForm')
-        .formValidation({
-            framework: 'bootstrap',
-            icon: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-            fields: {
-                name: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Name is required'
-                        }
-                    },
-                    phoneNumber: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The phone number is required'
-                            },
-                            regexp: {
-                                message: 'The phone number can only contain the digits, spaces, -, (, ), + and .',
-                                regexp: /^[0-9\s\-()+\.]+$/
-                            }
-                        }
-                    },
-                    email: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The email address is required'
-                            },
-                            emailAddress: {
-                                message: 'The input is not a valid email address'
-                            }
-                        }
-                    },
-                    message: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The message is required'
-                            }
-                        }
-                    }
-                }
-            }
-        })
-    });
-</script>
--->

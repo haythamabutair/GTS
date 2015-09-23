@@ -173,6 +173,7 @@
     </Compile>
     <Compile Include="Interfaces\IActionResult.cs" />
     <Compile Include="Interfaces\IRequestQuery.cs" />
+    <Compile Include="Models\EmailModel.cs" />
     <Compile Include="Models\SupportModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

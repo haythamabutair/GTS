@@ -7,11 +7,17 @@ using FireSharp;
 using FireSharp.Config;
 using FireSharp.Response;
 using System.Net.Mail;
+using System.Net;
 
 namespace Support.Models
 {
     public class SupportModel
     {
+        public SupportModel()
+        {
+            
+        }
+
         public async Task<string> retrieveSupportStringForId(int id)
         {
             IFirebaseConfig config = new FirebaseConfig
@@ -26,17 +32,18 @@ namespace Support.Models
             return response.ResultAs<string>();
         }
 
-        public bool sendMail(string name, string email, string phoneNumber, string message)
+        public bool sendMail(EmailModel emailModel)
         {
             MailMessage mail = new MailMessage();
             SmtpClient client = new SmtpClient();
-            client.Port = 25;
+            client.Port = 587;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
             client.Host = "smtp.gmail.com";
-            mail.To.Add(new MailAddress(email));
+            mail.To.Add(new MailAddress(emailModel.Email));
             mail.From = new MailAddress("haytham.abutair@gmail.com");
             mail.Subject = "this is a test email.";
+            client.EnableSsl = true;
             mail.Body = "this is my test email body";
             try
             {

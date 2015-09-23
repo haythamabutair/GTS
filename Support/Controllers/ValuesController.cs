@@ -9,6 +9,7 @@ using Support.Models;
 
 namespace Support.Controllers
 {
+
     public class ValuesController : ApiController
     {
         [HttpGet]
@@ -20,13 +21,10 @@ namespace Support.Controllers
         }
 
         [HttpPost]
-        [Route("name={name}&email={email}&phonenumber={phonenumber}&message={message}")]
-        public bool Email()
+        public bool Email(EmailModel emailModel)
         {
-            var queryString = Request.GetQueryNameValuePairs();
             var model = new SupportModel();
-          //  return model.sendMail(name, email, phoneNumber, message);
-            return true;
+            return model.sendMail(emailModel);
         }
     }
 }
