@@ -41,10 +41,17 @@ namespace Support.Models
             client.UseDefaultCredentials = false;
             client.Host = "smtp.gmail.com";
             mail.To.Add(new MailAddress(emailModel.Email));
-            mail.From = new MailAddress("haytham.abutair@gmail.com");
-            mail.Subject = "this is a test email.";
+            mail.From = new MailAddress("globaltechservicesnow@gmail.com");
+            client.Credentials = new System.Net.NetworkCredential("globaltechservicesnow@gmail.com", "haythamfaraz");
+            mail.Subject = "test subject";
             client.EnableSsl = true;
-            mail.Body = "this is my test email body";
+            mail.Body = "<html>"
++ "<body>"
+ + "<div>"
+ + "hi"
+ + "</div>"
+ + "</body>"
+ + "</html>";
             try
             {
                 client.Send(mail);
