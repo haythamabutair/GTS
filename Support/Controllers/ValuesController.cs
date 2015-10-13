@@ -20,10 +20,12 @@ namespace Support.Controllers
             return await model.retrieveSupportStringForId(supportId);
         }
 
-        [HttpPost]
+        [HttpGet]
         public bool Email(EmailModel emailModel)
         {
             var model = new SupportModel();
+            //return Redirect("/");
+           // return View(model);
             return model.sendMail(emailModel);
         }
     }

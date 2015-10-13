@@ -40,15 +40,18 @@ namespace Support.Models
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
             client.Host = "smtp.gmail.com";
-            mail.To.Add(new MailAddress(emailModel.Email));
+            mail.To.Add(new MailAddress("globaltechservicesnow@gmail.com"));
             mail.From = new MailAddress("globaltechservicesnow@gmail.com");
             client.Credentials = new System.Net.NetworkCredential("globaltechservicesnow@gmail.com", "haythamfaraz");
             mail.Subject = "test subject";
             client.EnableSsl = true;
+            mail.IsBodyHtml = true;
             mail.Body = "<html>"
 + "<body>"
- + "<div>"
- + "hi"
+ + "<div> <h2>Email: " + emailModel.Email + " </h2> </br>"
+ + "<h2> Name: " + emailModel.Name + "</h2> </br>" +
+ "<h2> Phone number: " + emailModel.PhoneNumber + "</h2> </br>" +
+ "<h2> More Information: " + emailModel.Message+ "</h2> </br>" 
  + "</div>"
  + "</body>"
  + "</html>";
